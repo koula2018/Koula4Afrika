@@ -12,7 +12,7 @@ const firebaseConfig = {
   storageBucket: "",
   messagingSenderId: "449461869688",
   appId: "1:449461869688:web:bef82471b494559f"
-};
+
 
 function writeData(){
     firebase.database().ref("user").set({
@@ -20,6 +20,7 @@ function writeData(){
 		age : document.getElementById("age").value
 	});
 }
+};
 </script>
 </head>
 <body>
