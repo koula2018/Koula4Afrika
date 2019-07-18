@@ -1,94 +1,33 @@
-<!DOCTYPE html>
+<!DOCtype html>
 <html>
 <head>
-<title>Koula</title>
-</head>
-
-<style>
-body{
-text-align: center;
-font-family: arial;
-font-size: 18px;
-}
-
-li{
-list-style: none;
-line-height: 2em;
-text-alignL: left;
-}
-
-.header{
-background: green;
-color: white;
-border-bottom: #ccc 3px solid;
-padding: 20px;
-}
-
-.container{
-width: 700px;
-margin: 30px auto;
-}
-
-#twitter{
-float: right;
-}
-
-#designs1{
-width: 300px;
-height: 300px;
-background: lightblue;
-margin-left: 3%;
-}
-
-#designs2{
-width: 300px;
-height: 300px;
-background: lightblue;
-margin-left: 30%;
-margin-top: -22%;
-}
-
-#designs3{
-width: 300px;
-height: 300px;
-background: lightblue;
-margin-left: 3%;
-margin-top: 3%;
-}
-
-#designs4{
-width: 300px;
-height: 300px;
-background: lightblue;
-margin-left: 30%;
-margin-top: -20%;
-}
-
-</style>
-
-<body>
-<div class='header'>
-    <h1>Welcome to my Web Works</h1>
-	<p>made by: Koula</p>
-</div>
-<br>
-<h1 style='color: #7c0736; margin-right: 20%;'>Hello..! This is my sample work that I have done recently.</h1>
-<iframe id='twitter' frameborder="0" width="500" height="400" src="http://koula.tweetwally.com/embed" target="_blank" align="center" scrolling="Auto"></iframe>
-
-<div id='designs1'></div>
-<div id='designs2'></div>
-<div id='designs3'></div>
-<div id='designs4'></div>
-
-<div class='container'>
-
-</div>
-
+<title>Firebase</title>
 <script>
 
-var number1 = 60;
-var number2 = 60;
- console.log(number1 + number2);
+const firebaseConfig = {
+  apiKey: "AIzaSyApD9Z0idu3k9Y43NGiddaJdiqaPdyQ24M",
+  authDomain: "user-app-87093.firebaseapp.com",
+  databaseURL: "https://user-app-87093.firebaseio.com",
+  projectId: "user-app-87093",
+  storageBucket: "",
+  messagingSenderId: "449461869688",
+  appId: "1:449461869688:web:bef82471b494559f"
+};
+
+function writeData(){
+    firebase.database().ref("user").set({
+	    name : document.getElementById("name").value,
+		age : document.getElementById("age").value
+	});
+}
 </script>
+</head>
+<body>
+
+<h1>Users Database</h1>
+<input type='text' placeholder='name' id='name'/>
+<input type='text' placeholder='age' id='age'/>
+<button onclick="writeData()">Submit</button>
+<a href='results.html'><p>click here to view results</p></a>
 </body>
 </html>
