@@ -1,0 +1,46 @@
+<!DOCtype html>
+<html>
+<head>
+<title>Display database</title>
+<script>
+
+const firebaseConfig = {
+  apiKey: "AIzaSyApD9Z0idu3k9Y43NGiddaJdiqaPdyQ24M",
+  authDomain: "user-app-87093.firebaseapp.com",
+  databaseURL: "https://user-app-87093.firebaseio.com",
+  projectId: "user-app-87093",
+  storageBucket: "",
+  messagingSenderId: "449461869688",
+  appId: "1:449461869688:web:bef82471b494559f"
+};
+
+function writeData(){
+    firebase.database().ref("user").set({
+	    name : document.getElementById("name").value,
+		age : document.getElementById("age").value
+	});
+	
+	getData()
+}
+
+function getData() {
+    firebase.database().ref('/').once('value', function(snapshot){
+	   snapshot.forEach(function(childSnapshot){  
+	      var childKey = childSnapshot.key;
+		  var childData = childSnapshot.val();
+		  document.getElementById("data").innerHTML = childData['name'] + "," + childData['age'];
+	   })
+	})
+}
+  getData();
+</script>
+</head>
+<body>
+
+<h1>Show Database</h1>
+<input type='text' placeholder='name' id='name'/>
+<input type='text' placeholder='age' id='age'/>
+<button onclick="writeData()">Submit</button>
+<p id='data'></p>
+</body>
+</html>
